@@ -6,10 +6,11 @@ const getWeb3 = () =>
     window.addEventListener("load", async () => {
       // Modern dapp browsers...
       if (window.ethereum) {
+        //사용자 승인을 거쳐 dapp 메타마스크
         const web3 = new Web3(window.ethereum);
         try {
           // Request account access if needed
-          await window.ethereum.enable();
+          await window.ethereum.enable(); //사용자 승인
           // Acccounts now exposed
           resolve(web3);
         } catch (error) {

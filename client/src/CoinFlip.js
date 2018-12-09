@@ -17,7 +17,7 @@ import "./css/style.css";
 //web3.js and contract
 import getWeb3 from "./utils/getWeb3";
 import truffleContract from "truffle-contract";
-import CoinToFlip from "./contracts/CoinToFlip.json"; /* link to /build/contracts */
+import CoinToFlip from "./contracts/CoinToFlip.json"; /* link to /build/contracts 트러플 빌드 결과물*/
 
 class CoinFlip extends Component {
   state = {
@@ -236,6 +236,7 @@ class CoinFlip extends Component {
   };
 
   componentDidMount = async () => {
+    //컴포넌트 마운트후 web3연결
     try {
       // Get network provider and web3 instance.
       const web3 = await getWeb3();
@@ -305,7 +306,7 @@ class CoinFlip extends Component {
             <Panel bsStyle="info">
               <Panel.Heading>
                 <Panel.Title>
-                  <Glyphicon glyph="thumbs-up" /> House:{" "}
+                  <Glyphicon glyph="thumbs-up" /> 하우스:{" "}
                   {this.state.houseBalance} ETH
                 </Panel.Title>
               </Panel.Heading>
@@ -322,7 +323,7 @@ class CoinFlip extends Component {
             <Panel bsStyle="info">
               <Panel.Heading>
                 <Panel.Title>
-                  <Glyphicon glyph="ok-circle" /> Your Bet
+                  <Glyphicon glyph="ok-circle" /> 베팅!
                 </Panel.Title>
               </Panel.Heading>
               <Panel.Body className="custom-align-center">
@@ -368,7 +369,7 @@ class CoinFlip extends Component {
                       bsSize="large"
                       onClick={this.handleClickBet}
                     >
-                      Bet
+                      베팅
                     </Button>
                     <Button
                       href="#"
@@ -376,10 +377,10 @@ class CoinFlip extends Component {
                       bsSize="large"
                       onClick={this.handleClickFlip}
                     >
-                      Flip!
+                      확인!
                     </Button>
                     <Button href="#" bsSize="large" onClick={this.handleRefund}>
-                      Cancel
+                      취소
                     </Button>
                     <Button
                       href="#"
@@ -387,7 +388,7 @@ class CoinFlip extends Component {
                       bsSize="large"
                       onClick={this.handleClickReset}
                     >
-                      Reset
+                      초기화
                     </Button>
                   </ButtonGroup>
                 </ButtonToolbar>
@@ -398,8 +399,7 @@ class CoinFlip extends Component {
             <Panel bsStyle="info">
               <Panel.Heading>
                 <Panel.Title>
-                  <Glyphicon glyph="signal" /> Transactions - 5 transactions in
-                  the last 50 blocks
+                  <Glyphicon glyph="signal" /> 트랜젝션
                 </Panel.Title>
               </Panel.Heading>
               <Panel.Body>
@@ -440,7 +440,7 @@ function Reveal(props) {
     <Panel bsStyle="info">
       <Panel.Heading>
         <Panel.Title>
-          <Glyphicon glyph="adjust" /> Coin Reveal
+          <Glyphicon glyph="adjust" /> 결과 확인
         </Panel.Title>
       </Panel.Heading>
       <Panel.Body className="custom-align-center">
