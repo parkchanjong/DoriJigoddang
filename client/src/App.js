@@ -8,7 +8,7 @@ class App extends Component {
       <div className="App">
         <header>
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-font">동전 앞 뒤 맞추기!</h1>
+          <h1 className="App-font">강아지 앞 뒤 맞추기!</h1>
         </header>
       </div>
     );

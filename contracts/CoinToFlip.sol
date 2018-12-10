@@ -12,7 +12,7 @@ contract CoinToFlip {
     uint constant MIN_BET = 0.01 ether;
     uint constant MAX_BET = 10 ether;
     uint constant HOUSE_FEE_PERCENT = 5;
-    uint constant HOUSE_MIN_FEE = 0.005 ether;
+    uint constant HOUSE_MIN_FEE = 0.005 ether;//수수료 최소값
 
     address public owner;   //계정 타입 -계정 주소만들때
     uint public lockedInBets;
@@ -73,7 +73,7 @@ contract CoinToFlip {
 
 
     //Bet by player  뭐 베팅했는지만 
-    function placeBet(uint8 betMask) external payable {
+    function placeBet(uint8 betMask) external payable {//payable 화면에서 이더 받을수 있다
 
         uint amount = msg.value;
 
@@ -97,11 +97,11 @@ contract CoinToFlip {
         bet.mask = betMask;
         bet.gambler = msg.sender;
 
-        // need to lock possible winning amount to pay
+       
         uint possibleWinningAmount = getWinningAmount(amount, numOfBetBit);
         lockedInBets += possibleWinningAmount;
 
-        // Check whether house has enough ETH to pay the bet.
+        
         require(lockedInBets < address(this).balance, "Cannot afford to pay the bet.");//내돈보다 플레이어 돈많으면 베팅안되게
     }
 
@@ -115,15 +115,13 @@ contract CoinToFlip {
             houseFee = HOUSE_MIN_FEE;
         }//보상
 
-        //reward calculation is depends on your own idea
+      
         uint reward = amount / (MAX_CASE + (numOfBetBit-1));
 
         winningAmount = (amount - houseFee) + reward;
     }
 
-    //
-    //
-    //
+    
     //Reveal the coin by player  결과
     function revealResult(uint8 seed) external {
 

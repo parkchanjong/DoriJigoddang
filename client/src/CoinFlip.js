@@ -17,7 +17,7 @@ import "./css/style.css";
 //web3.js and contract
 import getWeb3 from "./utils/getWeb3";
 import truffleContract from "truffle-contract";
-import CoinToFlip from "./contracts/CoinToFlip.json"; /* link to /build/contracts 트러플 빌드 결과물*/
+import CoinToFlip from "./contracts/CoinToFlip.json"; /* 트러플 빌드 결과물*/
 
 class CoinFlip extends Component {
   state = {
@@ -27,7 +27,7 @@ class CoinFlip extends Component {
 
     houseBalance: 0,
     show: false,
-    value: 0, //wager
+    value: 0,
     checked: 0, //coin
     reveal: 0,
     reward: 0,
@@ -67,9 +67,8 @@ class CoinFlip extends Component {
       return;
     }
 
-    //console.log("Account=" + accounts[0]); //Metamask account
     if (accounts[0] === undefined) {
-      alert("Please press F5 to connect Dapp"); //need to refresh page
+      alert("Please press F5 to connect Dapp");
       return;
     }
 
@@ -418,7 +417,7 @@ function AlertMsg(props) {
   if (props.flag) {
     return (
       <Alert bsStyle="danger">
-        <strong>You should flip the coin and bet bigger than 0.01 ETH</strong>
+        <strong>0.01eth 보다 크게 베팅하세요</strong>
       </Alert>
     );
   }

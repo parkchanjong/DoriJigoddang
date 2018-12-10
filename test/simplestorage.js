@@ -31,7 +31,7 @@ contract("CoinToFlip", function(accounts) {
     );
   });
 
-  //0.1 ETH를 베팅하면 컨트랙트의 잔액은 (     ) ETH가 되어야 한다.
+  //0.1 ETH를 베팅하면 컨트랙트의 잔액은 5.1 ETH가 되어야 한다.
   it("should have normal bet", async () => {
     let instance = await coinToFlip.deployed();
 
